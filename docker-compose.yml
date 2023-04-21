@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    image: front
+    privileged: true
+    volumes:
+      - ./front:/front
+    ports:
+      - 8080:3000
+      - 24678:24678
+    container_name: front
+    command: yarn dev
+    tty: true
+    stdin_open: true
+
+volumes:
+  front-volume:
+  node_modules:
+

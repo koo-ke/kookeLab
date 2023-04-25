@@ -12,11 +12,147 @@
         <v-layout>
           <div class="mx-auto">
             <span class="title"><b>kookeLab</b></span>
-            <span class="version"><b>version.1.0.0</b></span>
+            <span class="version"><b>version.1.1.0</b></span>
           </div>
         </v-layout>
       </v-app-bar>
     <!-- contents -->
+
+      <div class="component">
+        <!-- lab_image -->
+          <v-row>
+            <v-col class="d-flex">
+              <div class="mx-auto">
+                <div class="box">
+                  <img class="lab" src="@/assets/image/lab.png">
+                </div>
+              </div>
+            </v-col>
+          </v-row>
+
+          <div class="mobile-menu">
+            <v-row>
+              <v-col>
+                <v-btn variant="outlined" block @click="changeFlg(2)">ABOUT</v-btn>
+              </v-col>
+              <v-col>
+                <v-btn variant="outlined" block @click="changeFlg(3)">SKILL</v-btn>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-btn variant="outlined" block @click="changeFlg(4)">SNS</v-btn>
+              </v-col>
+              <v-col>
+                <v-btn variant="outlined" block @click="changeFlg(5)">WORK</v-btn>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-btn variant="outlined" block @click="changeFlg(6)">GitHub</v-btn>
+              </v-col>
+              <v-col>
+              </v-col>
+            </v-row>
+          </div>
+
+
+
+        <!-- window-->
+          <v-row class="mt-n7">
+            <v-col class="d-flex">
+              <div class="window-view">
+                <div class="character-window">
+                  <img width="120" src="@/assets/image/avatar.png">
+                </div>
+                <div class="message-window">
+                  <b>【kooke】</b><br>
+                  <div class="mobile-message" v-if="messageFlg == 1">
+                    <div class="animate seven">
+                      <span>kooke</span>
+                      <span>Labへ</span>
+                      <span>ようこそ。</span>
+                    </div>
+                  </div>
+                  <div class="mobile-message" v-else-if="messageFlg == 2">
+                    <div class="animate seven">
+                      <span>ここは</span>
+                      <span>エンジニア</span>
+                      <span>kookeの</span>
+                      <span>ポートフォリオ</span>
+                      <span>サイトです。</span><br>
+                      <span>各種</span>
+                      <span>項目を</span>
+                      <span>選んで</span>
+                      <span>頂くと</span>
+                      <span>kookeに</span>
+                      <span>ついて</span>
+                      <span>確認</span>
+                      <span>することが</span>
+                      <span>出来ます。</span>
+                    </div>
+                  </div>
+                  <div class="mobile-message" v-else-if="messageFlg == 3">
+                    <div class="animate seven">
+                      <span>kookeの</span>
+                      <span>SKILLを</span>
+                      <span>表示しますか？</span>
+                    </div>
+                    <v-btn variant="outlined" density="compact" href="https://github.com/koo-ke" target="_blank">
+                      はい
+                    </v-btn>
+                    <v-btn density="compact" variant="outlined" @click="changeFlg(1)">
+                      いいえ
+                    </v-btn>
+                  </div>
+                  <div class="mobile-message" v-else-if="messageFlg == 4">
+                    <div class="animate seven">
+                      <span>kookeの</span>
+                      <span>SNSを</span>
+                      <span>表示しますか？</span>
+                    </div>
+                    <v-btn variant="outlined" density="compact" href="https://github.com/koo-ke" target="_blank">
+                      はい
+                    </v-btn>
+                    <v-btn density="compact" variant="outlined" @click="changeFlg(1)">
+                      いいえ
+                    </v-btn>
+                  </div>
+                  <div class="mobile-message" v-else-if="messageFlg == 5">
+                    <div class="animate seven">
+                      <span>kookeの</span>
+                      <span>WORKを</span>
+                      <span>表示しますか？</span>
+                    </div>
+                    <v-btn variant="outlined" density="compact" href="https://github.com/koo-ke" target="_blank">
+                      はい
+                    </v-btn>
+                    <v-btn density="compact" variant="outlined" @click="changeFlg(1)">
+                      いいえ
+                    </v-btn>
+                  </div>
+                  <div class="mobile-message" v-else-if="messageFlg == 6">
+                    <div class="animate seven">
+                      <span>kookeの</span>
+                      <span>GitHubを</span>
+                      <span>表示しますか？</span>
+                    </div>
+                    <v-btn variant="outlined" density="compact" href="https://github.com/koo-ke" target="_blank">
+                      はい
+                    </v-btn>
+                    <v-btn density="compact" variant="outlined" @click="changeFlg(1)">
+                      いいえ
+                    </v-btn>
+                  </div>
+                </div>
+              </div>
+            </v-col>
+          </v-row>
+          <div class="release-notes">
+            Release notes 1.1.0 2023/04/26 Mobile版ビュー作成 / 1.0.0 2023/04/25 PC版ビュー作成
+          </div>
+      </div>
+
       <div class="component">
         <!-- lab_image -->
           <v-row>
@@ -159,9 +295,11 @@
             </v-col>
           </v-row>
           <div class="release-notes">
-            Release notes 1.0.0 2023/04/25 PC版ビュー作成
+            Release notes 1.1.0 2023/04/26 Mobile版ビュー作成 / 1.0.0 2023/04/25 PC版ビュー作成
           </div>
       </div>
+
+
   </v-app>
 </template>
 
@@ -174,6 +312,26 @@
 </script>
 
 <style>
+
+/*  */
+ .mobile-menu {
+  color:white;
+  margin-bottom: 20px;
+ }
+
+ .mobile-menu-title {
+  font-size: 40px;
+ }
+
+ .mobile-menu-category {
+  font-size: 50px;
+ }
+
+ .mobile-message {
+  font-size: 12px;
+ }
+
+
 /* フォント指定 */
   .v-application{
     font-family: 'DotGothic16', sans-serif;

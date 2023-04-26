@@ -52,8 +52,11 @@
                 <v-btn variant="outlined" block @click="changeFlg(6)">GitHub</v-btn>
               </v-col>
               <v-col>
+                <v-btn variant="outlined" block disabled>???</v-btn>
               </v-col>
             </v-row>
+
+
           </div>
 
 
@@ -98,9 +101,35 @@
                       <span>SKILLを</span>
                       <span>表示しますか？</span>
                     </div>
-                    <v-btn variant="outlined" density="compact" href="https://github.com/koo-ke" target="_blank">
-                      はい
-                    </v-btn>
+                    <v-dialog v-model="skillDialog" width="auto">
+                      <template v-slot:activator="{ props }">
+                        <v-btn variant="outlined" density="compact" v-bind="props">
+                            はい
+                          </v-btn>
+                      </template>
+                      <v-card class="mobile-modal-window">
+                        <v-card-text>
+                          <div class="animate seven">
+                            <span><b>【SKILL】</b></span><br><br>
+                            <span>■実務経験</span><br>
+                            <span>・HTML / </span>
+                            <span>CSS / </span>
+                            <span>RUBY(RAILS) / </span>
+                            <span>NODE.JS(VUE.JS) / </span>
+                            <span>MYSQL / </span><br>
+                            <span>AWS(S3 /EC2 /ROUTE53 /CLOUDFRONT/ RDS)</span><br><br>
+                            <span>■ 個人開発で使ったことがある or 勉強中</span><br>
+                            <span>・FIREBASE(HOSTING /REALTIME DATABASE) / </span>
+                            <span>REACT(NEXT.JS) / </span>
+                            <span>GO / </span>
+                            <span>AWS(LAMBDA /DYNAMODB /APIGATEWAY /GRAPHQL)</span><br>
+                          </div>
+                        </v-card-text>
+                        <v-card-actions>
+                          <v-btn block @click="skillDialog = false">Close</v-btn>
+                        </v-card-actions>
+                      </v-card>
+                    </v-dialog>
                     <v-btn density="compact" variant="outlined" @click="changeFlg(1)">
                       いいえ
                     </v-btn>
@@ -111,9 +140,25 @@
                       <span>SNSを</span>
                       <span>表示しますか？</span>
                     </div>
-                    <v-btn variant="outlined" density="compact" href="https://github.com/koo-ke" target="_blank">
-                      はい
-                    </v-btn>
+                    <v-dialog v-model="snsDialog" width="auto">
+                      <template v-slot:activator="{ props }">
+                        <v-btn variant="outlined" density="compact" v-bind="props">
+                            はい
+                          </v-btn>
+                      </template>
+                      <v-card class="mobile-modal-window">
+                        <v-card-text>
+                          <div class="animate seven">
+                            <span><b>【SNS】</b></span><br><br>
+                            <span>Twitter:<a href="https://twitter.com/Koo_Ke" target="_blank">https://twitter.com/Koo_Ke</a></span><br>
+                            <span>Qiita:<a href="https://qiita.com/koo-ke" target="_blank">https://qiita.com/koo-ke</a></span><br>
+                          </div>
+                        </v-card-text>
+                        <v-card-actions>
+                          <v-btn block @click="snsDialog = false">Close</v-btn>
+                        </v-card-actions>
+                      </v-card>
+                    </v-dialog>
                     <v-btn density="compact" variant="outlined" @click="changeFlg(1)">
                       いいえ
                     </v-btn>
@@ -124,9 +169,44 @@
                       <span>WORKを</span>
                       <span>表示しますか？</span>
                     </div>
-                    <v-btn variant="outlined" density="compact" href="https://github.com/koo-ke" target="_blank">
-                      はい
-                    </v-btn>
+                    <v-dialog v-model="workDialog" width="auto">
+                      <template v-slot:activator="{ props }">
+                        <v-btn variant="outlined" density="compact" v-bind="props">
+                            はい
+                          </v-btn>
+                      </template>
+                      <v-card class="mobile-modal-window">
+                        <v-card-text>
+                          <div class="animate seven">
+                            <span><b>【WORK】</b></span><br><br>
+                            <span>2019年 09月<br>
+                              某自社開発会社へ入社。
+                            </span><br>
+                            <span>2020年 08月<br>
+                              チームの業務調査システムを開発。
+                            </span><br>
+                            <span>2020年 10月<br>
+                              web開発チームへ異動。
+                            </span><br>
+                            <span>2021年 12月<br>
+                              新規アプリのfront担当。
+                            </span><br>
+                            <span>2022年 03月<br>
+                              SSH接続を駆使した調査システムを作成。
+                            </span><br>
+                            <span>2022年 05月<br>
+                              社内アプリのUIを一新。
+                            </span><br>
+                            <span>2023年 02月<br>
+                              新規アプリの開発を担当。
+                            </span><br>
+                          </div>
+                        </v-card-text>
+                        <v-card-actions>
+                          <v-btn block @click="workDialog = false">Close</v-btn>
+                        </v-card-actions>
+                      </v-card>
+                    </v-dialog>
                     <v-btn density="compact" variant="outlined" @click="changeFlg(1)">
                       いいえ
                     </v-btn>
@@ -309,9 +389,17 @@
   const changeFlg = (flg:number) => {
     messageFlg.value = flg
   }
+
+  const skillDialog = ref(false)
+  const snsDialog = ref(false)
+  const workDialog = ref(false)
 </script>
 
 <style>
+
+.mobile-modal-window {
+      font-family: 'DotGothic16', sans-serif;
+}
 
 /*  */
  .mobile-menu {

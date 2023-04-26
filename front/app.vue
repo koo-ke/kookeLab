@@ -16,8 +16,9 @@
           </div>
         </v-layout>
       </v-app-bar>
-    <!-- contents -->
 
+    <!-- mobile-contents -->
+    <div id="mobile">
       <div class="component">
         <!-- lab_image -->
           <v-row>
@@ -29,7 +30,6 @@
               </div>
             </v-col>
           </v-row>
-
           <div class="mobile-menu">
             <v-row>
               <v-col>
@@ -55,12 +55,7 @@
                 <v-btn variant="outlined" block disabled>???</v-btn>
               </v-col>
             </v-row>
-
-
           </div>
-
-
-
         <!-- window-->
           <v-row class="mt-n7">
             <v-col class="d-flex">
@@ -150,8 +145,8 @@
                         <v-card-text>
                           <div class="animate seven">
                             <span><b>【SNS】</b></span><br><br>
-                            <span>Twitter:<a href="https://twitter.com/Koo_Ke" target="_blank">https://twitter.com/Koo_Ke</a></span><br>
-                            <span>Qiita:<a href="https://qiita.com/koo-ke" target="_blank">https://qiita.com/koo-ke</a></span><br>
+                            <span>Twitter:<br><a href="https://twitter.com/Koo_Ke" target="_blank">https://twitter.com/Koo_Ke</a></span><br><br>
+                            <span>Qiita:<br><a href="https://qiita.com/koo-ke" target="_blank">https://qiita.com/koo-ke</a></span><br><br>
                           </div>
                         </v-card-text>
                         <v-card-actions>
@@ -229,10 +224,15 @@
             </v-col>
           </v-row>
           <div class="release-notes">
-            Release notes 1.1.0 2023/04/26 Mobile版ビュー作成 / 1.0.0 2023/04/25 PC版ビュー作成
+            Release notes<br>
+            1.1.0 2023/04/26 Mobile版ビュー作成<br>
+            1.0.0 2023/04/25 PC版ビュー作成<br>
           </div>
       </div>
+    </div>
 
+    <!-- pc-contents -->
+    <div id="pc">
       <div class="component">
         <!-- lab_image -->
           <v-row>
@@ -378,6 +378,19 @@
             Release notes 1.1.0 2023/04/26 Mobile版ビュー作成 / 1.0.0 2023/04/25 PC版ビュー作成
           </div>
       </div>
+    </div>
+
+    <v-footer
+    class="bg-black text-center d-flex flex-column"
+  >
+
+
+    <v-divider></v-divider>
+
+    <div>
+      {{ new Date().getFullYear() }} — <strong>Vue.js / NUXT3 / Vuetify3</strong>
+    </div>
+  </v-footer>
 
 
   </v-app>
@@ -396,6 +409,17 @@
 </script>
 
 <style>
+@media (min-width: 500px) {
+  #mobile {
+    display:none
+  }
+}
+@media (max-width: 499px) {
+  #pc {
+    display:none
+  }
+}
+
 
 .mobile-modal-window {
       font-family: 'DotGothic16', sans-serif;
@@ -565,7 +589,7 @@
     margin: 0 auto 0 auto;
     padding: 60px 5% 5% 5%;
     background-color: #111;
-    height: 100vh;
+    min-height: 800px;
     width: 100%;
   }
 
@@ -710,6 +734,17 @@
     font-size: 20px;
     font-weight: bold;
     animation: flash 1.5s linear infinite;
+    text-shadow:1px 1px 0 #111, -1px -1px 0 #111,
+                -1px 1px 0 #111, 1px -1px 0 #111,
+                0px 1px 0 #111,  0-1px 0 #111,
+                -1px 0 0 #111, 1px 0 0 #111;
+  }
+  .mobile-menu-title{
+    position: absolute;
+    top: 70%;
+    left: 80%;
+    font-size: 30px;
+    font-weight: bold;
     text-shadow:1px 1px 0 #111, -1px -1px 0 #111,
                 -1px 1px 0 #111, 1px -1px 0 #111,
                 0px 1px 0 #111,  0-1px 0 #111,
